@@ -1,24 +1,43 @@
 package neotp4Model;
 
-public class CaninoProtector extends Canino implements Preparar{
-	
+public class CaninoProtector extends Canino implements Protector {
+
+	private boolean trained;
+	private String equipment;
+	private String assignedLocation;
+
 	public CaninoProtector(String id, String nombre, String tipo, String raza, String sexo) {
 		super(id, nombre, tipo, raza, sexo);
+		this.trainedForAttack();
+		this.equipTacticalVests();
+		this.assignGeneralPatrol();
+	}
+
+	public boolean isTrained() {
+		return trained;
+	}
+
+	public String getEquipment() {
+		return equipment;
+	}
+
+	public String getAssignedLocation() {
+		return assignedLocation;
 	}
 
 	@Override
-	public void detectar() {
-		System.out.println("Entrenados para ataque");
+	public void trainedForAttack() {
+		this.trained = true;
 	}
 
 	@Override
-	public void equipar() {
-		System.out.println("equipados con chalecos tácticos de kevlar");
+	public void equipTacticalVests() {
+		this.equipment = "Chalecos Tácticos de Kevlar";
 	}
 
 	@Override
-	public void asignar() {
-		System.out.println("asignados para patrullaje en general");
+	public void assignGeneralPatrol() {
+		this.assignedLocation = "Patrullaje en general";
 	}
 
 }

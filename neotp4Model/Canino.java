@@ -6,7 +6,7 @@ public abstract class Canino {
 	private String tipo;
 	private String raza;
 	private String sexo;
-	
+
 	public Canino(String id, String nombre, String tipo, String raza, String sexo) {
 		super();
 		this.id = id;
@@ -15,7 +15,7 @@ public abstract class Canino {
 		this.raza = raza;
 		this.sexo = sexo;
 	}
-	
+
 	public String getTipo() {
 		return tipo;
 	}
@@ -34,7 +34,7 @@ public abstract class Canino {
 
 	@Override
 	public String toString() {
-		return "id: " + id + ", nombre: " + nombre + ", tipo: " + tipo + ", raza: " + raza + ", sexo: " + sexo ;
+		return "id: " + id + ", nombre: " + nombre + ", tipo: " + tipo + ", raza: " + raza + ", sexo: " + sexo;
 	}
-	
+
 }
