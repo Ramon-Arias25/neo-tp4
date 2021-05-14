@@ -12,14 +12,17 @@ public class Launch {
 	public static void main(String[] args) {
 		List<Canino> caninosList = new ArrayList<>();
 /*
- * 		1 	- Kei 		- Protección 	- Pastor belga malinés 	- macho
- *		2 	- Matthis 	- Protección 	- Pastor alemán			- macho
- *		3 	- Minnie 	- Detección 	- Mestizo 				- hembra
- *		4 	- Marek 	- Protección 	- Pastor holandés		- macho
- *		5 	- Sally 	- Protección 	- Pastor alemán 		- hembra
+ *
+ *		id 	- Nombre 	- Tipo 		- Raza 			- sexo
+ *		1 	- Kei 		- Protección 	- Pastor belga malinés 	- macho
+ *		2 	- Matthis 	- Protección 	- Pastor alemán 	- macho
+ *		3 	- Minnie 	- Detección 	- Mestizo 		- hembra
+ *		4 	- Marek 	- Protección 	- Pastor holandés	- macho
+ *		5 	- Sally 	- Protección 	- Pastor alemán 	- hembra
  *		6 	- Leia 		- Detección 	- Pastor australiano 	- hembra
  *		7 	- Eddie 	- Protección 	- Pastor belga malinés 	- macho
- *		8 	- Razor 	- Detección 	- Border Collie 		- macho
+ *		8 	- Razor 	- Detección 	- Border Collie 	- macho
+ *
  */
 		caninosList.add(new CaninoProtector("1","Kei","Protección", "Pastor belga malinés" , "macho"));
 		caninosList.add(new CaninoProtector("2","Matthis","Protección","Pastor alemán","macho"));
@@ -31,19 +34,19 @@ public class Launch {
 		caninosList.add(new CaninoDetector("8","Razor","Detección","Border Collie","macho"));
 		
 		//Imprimir Listado;
-		imprimirListado(caninosList, "Protección");
-		imprimirListado(caninosList, "Detección");
+		listadoPorTipo(caninosList, "Protección");
+		listadoPorTipo(caninosList, "Detección");
 		
 		//Conteo total por sexo
 		totalPorSexo(caninosList,"macho");
 		totalPorSexo(caninosList,"hembra");
 	}
 	
-	public static void imprimirListado (List<Canino> lista, String filtro) {
+	public static void listadoPorTipo (List<Canino> lista, String tipo) {
 		
-		System.out.println("Listado Canino "+ filtro + ":");
+		System.out.println("Listado Canino "+ tipo + ":");
 		lista.stream()
-			.filter(c -> c.getTipo().equals(filtro))
+			.filter(c -> c.getTipo().equals(tipo))
 			.forEach(System.out::println);
 		System.out.println("-----------------------------------");
 	}
