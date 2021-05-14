@@ -2,6 +2,7 @@ package neotp4app;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 import neotp4Model.Canino;
 import neotp4Model.CaninoDetector;
@@ -11,7 +12,8 @@ public class Launch {
 
 	public static void main(String[] args) {
 		List<Canino> caninosList = new ArrayList<>();
-		
+		List<Canino> caninosProtectorList = new ArrayList<>();
+		List<Canino> caninosDetectorList = new ArrayList<>();
 		/*
 		 *
 		 * id - Nombre - Tipo - Raza - sexo 1 - Kei - Protección - Pastor belga malinés
@@ -32,19 +34,27 @@ public class Launch {
 		caninosList.add(new CaninoDetector("8", "Razor", "Detección", "Border Collie", "macho"));
 
 
-		listadoPorTipo(caninosList, "Protección");
-		listadoPorTipo(caninosList, "Detección");
+		//listadoPorTipo(caninosList, "Protección");
+		//listadoPorTipo(caninosList, "Detección");
 		
+		System.out.println("Listado Canino de Protección:");
+		caninosProtectorList.addAll(listadoPorTipo(caninosList, "Protección"));
+		caninosProtectorList.forEach(System.out::println);
 
+		System.out.println("Listado Canino de Detección:");
+		caninosDetectorList.addAll(listadoPorTipo(caninosList, "Detección"));
+		caninosDetectorList.forEach(System.out::println);
+		
 		System.out.println("Conteo total de machos: " + totalPorSexo(caninosList, "macho"));
 		System.out.println("Conteo total de hembras: " + totalPorSexo(caninosList, "hembra"));
 	}
 
-	public static void listadoPorTipo(List<Canino> lista, String tipo) {
-		System.out.println("Listado Canino " + tipo + ":");
+	public static List<Canino> listadoPorTipo(List<Canino> lista, String tipo) {
+		List<Canino> bList = new ArrayList<>(); 				
 		lista.stream()
 			.filter(canino -> canino.getTipo().equals(tipo))
-			.forEach(System.out::println);
+			.forEach(bList::add);
+		return bList;
 	}
 
 	public static int totalPorSexo(List<Canino> lista, String sexo) {
