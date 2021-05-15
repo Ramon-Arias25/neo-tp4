@@ -1,5 +1,13 @@
 package neotp4Model;
-
+/**
+ * 
+ * @author ramon.arias
+ * date: 13/05/2021
+ * current version: 1
+ * CanineDetector Class: that inherits from the abstract Canine class 
+ * and implements the Detector interface to instantiate the members of the k-9 unit
+ * 
+ */
 public class CanineDetector extends Canine implements Detector {
 
 	private boolean train;

@@ -1,4 +1,13 @@
 package neotp4Model;
+/**
+ * 
+ * @author ramon.arias
+ * date: 13/05/2021
+ * current version: 1
+ * CanineProtector Class: that inherits from the abstract Canine class 
+ * and implements the Protector interface to instantiate the members of the k-9 unit
+ * 
+ */
 
 public class CanineProtector extends Canine implements Protector {
 
@@ -6,13 +15,11 @@ public class CanineProtector extends Canine implements Protector {
 	private String equipment;
 	private String assignedLocation;
 
-	
-
 	public CanineProtector(String id, String nombre, String tipo, String raza, String sexo) {
 		super(id, nombre, tipo, raza, sexo);
 		this.trainForAttack();
 		this.equipWithKevlarTacticalVests();
-		this.assignForGeneralPatrol();	
+		this.assignForGeneralPatrol();
 	}
 
 	public boolean isTrained() {

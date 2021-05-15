@@ -1,5 +1,12 @@
 package neotp4Model;
-
+/**
+ * 
+ * @author ramon.arias
+ * date: 13/05/2021
+ * current version: 1
+ *	Canina class: to instantiate k9 member through its subclasses
+ *
+ */
 public abstract class Canine {
 	private String id;
 	private String name;
