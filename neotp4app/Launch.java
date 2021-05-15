@@ -37,29 +37,29 @@ public class Launch {
 		System.out.println("==================================================================================");
 		System.out.println("Listado Canino de Protección:");
 		System.out.println("==================================================================================");
-		caninesProtectorList.addAll(listadoPorTipo(caninesList, "Protección"));
+		caninesProtectorList.addAll(listingByType(caninesList, "Protección"));
 		caninesProtectorList.forEach(System.out::println);
 
 		System.out.println("==================================================================================");
 		System.out.println("Listado Canino de Detección:");
 		System.out.println("==================================================================================");
-		caninesDetectorList.addAll(listadoPorTipo(caninesList, "Detección"));
+		caninesDetectorList.addAll(listingByType(caninesList, "Detección"));
 		caninesDetectorList.forEach(System.out::println);
 		
 		System.out.println("==================================================================================");
 		System.out.println("Totales por Sexo:");
 		System.out.println("==================================================================================");
-		System.out.println("Conteo total de machos: " + totalPorSexo(caninesList, "macho"));
-		System.out.println("Conteo total de hembras: " + totalPorSexo(caninesList, "hembra"));
+		System.out.println("Conteo total de machos: " + totalBySex(caninesList, "macho"));
+		System.out.println("Conteo total de hembras: " + totalBySex(caninesList, "hembra"));
 	}
 
-	public static List<Canine> listadoPorTipo(List<Canine> list, String type) {
+	public static List<Canine> listingByType(List<Canine> list, String type) {
 		List<Canine> aux = new ArrayList<>(); 				
 		list.stream().filter(canine -> canine.getType().equals(type)).forEach(aux::add);
 		return aux;
 	}
 
-	public static int totalPorSexo(List<Canine> list, String sex) {
+	public static int totalBySex(List<Canine> list, String sex) {
 		return (int) list.stream().filter(canine -> canine.getSex().equals(sex)).count();
 	}
 }

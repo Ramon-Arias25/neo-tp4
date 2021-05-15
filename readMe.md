@@ -1,0 +1,1 @@
+Para cumplir con buenas prácticas se cambiaron los métodos y variables a inglés pero aunque los datos e impresiones por consola permanecen en español para no modificar los datos de entrada suministrados en el enunciado
