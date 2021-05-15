@@ -1,9 +1,9 @@
 package neotp4Model;
 
 public interface Detector {
-	public void trainedDetect();
+	public void trainForDetectionOfPersonsAndExplosives();
 
-	public void equippedCameras();
+	public void equipWithCameraForTracking();
 
-	public void assignedConcurrencyLocations();
+	public void assignToBulkConcurrencyLocations();
 }

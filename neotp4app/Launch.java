@@ -3,18 +3,17 @@ package neotp4app;
 import java.util.ArrayList;
 import java.util.List;
 
-import neotp4Model.Canino;
-import neotp4Model.CaninoDetector;
-import neotp4Model.CaninoProtector;
+import neotp4Model.Canine;
+import neotp4Model.CanineDetector;
+import neotp4Model.CanineProtector;
 
 public class Launch {
 
 	public static void main(String[] args) {
-		List<Canino> caninosList = new ArrayList<>();
-		List<Canino> caninosProtectorList = new ArrayList<>();
-		List<Canino> caninosDetectorList = new ArrayList<>();
+		List<Canine> caninesList = new ArrayList<>();
+		List<Canine> caninesProtectorList = new ArrayList<>();
+		List<Canine> caninesDetectorList = new ArrayList<>();
 /*
- * 
  * 		id 	- Nombre 	- Tipo 		- Raza 			- sexo
  *		1 	- Kei 		- Protección 	- Pastor belga malinés 	- macho
  *		2 	- Matthis 	- Protección 	- Pastor alemán 	- macho
@@ -26,41 +25,41 @@ public class Launch {
  *		8 	- Razor 	- Detección 	- Border Collie 	- macho
  * 
  * */
-		caninosList.add(new CaninoProtector("1", "Kei", "Protección", "Pastor belga malinés", "macho"));
-		caninosList.add(new CaninoProtector("2", "Matthis", "Protección", "Pastor alemán", "macho"));
-		caninosList.add(new CaninoDetector("3", "Minnie", "Detección", "Mestizo", "hembra"));
-		caninosList.add(new CaninoProtector("4", "Marek", "Protección", "Pastor holandés", "macho"));
-		caninosList.add(new CaninoProtector("5", "Sally", "Protección", "Pastor alemán", "hembra"));
-		caninosList.add(new CaninoDetector("6", "Leia", "Detección", "Pastor australiano", "hembra"));
-		caninosList.add(new CaninoProtector("7", "Eddie", "Protección", "Pastor belga malinés", "macho"));
-		caninosList.add(new CaninoDetector("8", "Razor", "Detección", "Border Collie", "macho"));
+		caninesList.add(new CanineProtector("1", "Kei", "Protección", "Pastor belga malinés", "macho"));
+		caninesList.add(new CanineProtector("2", "Matthis", "Protección", "Pastor alemán", "macho"));
+		caninesList.add(new CanineDetector("3", "Minnie", "Detección", "Mestizo", "hembra"));
+		caninesList.add(new CanineProtector("4", "Marek", "Protección", "Pastor holandés", "macho"));
+		caninesList.add(new CanineProtector("5", "Sally", "Protección", "Pastor alemán", "hembra"));
+		caninesList.add(new CanineDetector("6", "Leia", "Detección", "Pastor australiano", "hembra"));
+		caninesList.add(new CanineProtector("7", "Eddie", "Protección", "Pastor belga malinés", "macho"));
+		caninesList.add(new CanineDetector("8", "Razor", "Detección", "Border Collie", "macho"));
 
 		System.out.println("==================================================================================");
 		System.out.println("Listado Canino de Protección:");
 		System.out.println("==================================================================================");
-		caninosProtectorList.addAll(listadoPorTipo(caninosList, "Protección"));
-		caninosProtectorList.forEach(System.out::println);
+		caninesProtectorList.addAll(listadoPorTipo(caninesList, "Protección"));
+		caninesProtectorList.forEach(System.out::println);
 
 		System.out.println("==================================================================================");
 		System.out.println("Listado Canino de Detección:");
 		System.out.println("==================================================================================");
-		caninosDetectorList.addAll(listadoPorTipo(caninosList, "Detección"));
-		caninosDetectorList.forEach(System.out::println);
+		caninesDetectorList.addAll(listadoPorTipo(caninesList, "Detección"));
+		caninesDetectorList.forEach(System.out::println);
 		
 		System.out.println("==================================================================================");
 		System.out.println("Totales por Sexo:");
 		System.out.println("==================================================================================");
-		System.out.println("Conteo total de machos: " + totalPorSexo(caninosList, "macho"));
-		System.out.println("Conteo total de hembras: " + totalPorSexo(caninosList, "hembra"));
+		System.out.println("Conteo total de machos: " + totalPorSexo(caninesList, "macho"));
+		System.out.println("Conteo total de hembras: " + totalPorSexo(caninesList, "hembra"));
 	}
 
-	public static List<Canino> listadoPorTipo(List<Canino> lista, String tipo) {
-		List<Canino> aux = new ArrayList<>(); 				
-		lista.stream().filter(canino -> canino.getTipo().equals(tipo)).forEach(aux::add);
+	public static List<Canine> listadoPorTipo(List<Canine> list, String type) {
+		List<Canine> aux = new ArrayList<>(); 				
+		list.stream().filter(canine -> canine.getType().equals(type)).forEach(aux::add);
 		return aux;
 	}
 
-	public static int totalPorSexo(List<Canino> lista, String sexo) {
-		return (int) lista.stream().filter(canino -> canino.getSexo().equals(sexo)).count();
+	public static int totalPorSexo(List<Canine> list, String sex) {
+		return (int) list.stream().filter(canine -> canine.getSex().equals(sex)).count();
 	}
 }

@@ -1,10 +1,9 @@
 package neotp4Model;
 
 public interface Protector {
+	public void trainForAttack();
 
-	public void trainedForAttack ();
-	
-	public void equipTacticalVests ();
-	
-	public void assignGeneralPatrol();
+	public void equipWithKevlarTacticalVests();
+
+	public void assignForGeneralPatrol();
 }
